@@ -7,7 +7,8 @@ const registeruser = asyncHandler(async (req,res)=>{
     const {firstname,lastname,email,password}=req.body
     const userExits = await User.findOne({email})
     if(userExits){
-        res.status(400).send({message:"User Already Exit"})
+        res.status(400)
+        throw new Error("User Already Exit")
     }
     const user = await User.create({
         firstname,lastname,email,password
@@ -22,8 +23,8 @@ const registeruser = asyncHandler(async (req,res)=>{
         })
     }
     else{
-        res.status(404).send({message:"Error Found!"})
-        
+        res.status(404)
+        throw new Error("Error found")
     }
 })
 

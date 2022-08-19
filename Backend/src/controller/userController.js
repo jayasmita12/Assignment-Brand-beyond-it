@@ -45,4 +45,13 @@ const authuser = asyncHandler(async (req,res)=>{
     }
 })
 
-module.exports ={ registeruser,authuser}
+const getuser =asyncHandler(async(req,res)=>{
+    const user =await User.find()
+    if(user){
+        res.status(200).send(user)
+    }
+    else{
+        res.status(500).send({message:"Users Not Found"})
+    }
+})
+module.exports ={ registeruser,authuser,getuser}

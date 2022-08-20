@@ -18,7 +18,7 @@ export const Login = () => {
         e.preventDefault()
         try {
            
-            const {data:res} = await axios("http://localhost:3000/api/user/login",{
+            const {data:res} = await axios("https://brand-beyond-authentication.herokuapp.com/login",{
               method:"post",
               data
             })

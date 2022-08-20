@@ -10,7 +10,7 @@ connect()
 app.use(express.json())
 app.use(cors())
 
-app.use("api/user/",userRoute)
+app.use("/api/user/",userRoute)
 
 const port = process.env.PORT || 5050
 app.listen(port , ()=>{

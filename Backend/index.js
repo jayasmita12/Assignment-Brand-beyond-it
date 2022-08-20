@@ -1,18 +1,25 @@
 const express = require("express")
 const cors = require("cors")
 require("dotenv").config()
+const connect= require("./src/configs/db")
+const userController = require("./src/controllers/user.controller")
+const {register,login} = require("./src/controllers/auth.controller")
+
+
 const app = express()
-const connect= require("./src/config/db")
-const userRoute = require("./src/route/userRoute")
-
-
-connect()
 app.use(express.json())
 app.use(cors())
 
-app.use("/api/user",userRoute)
+app.post("/api/user/register",register)
+app.post("/api/user/login",login)
 
 const port = process.env.PORT || 5050
-app.listen(port , ()=>{
-    console.log(`Listening to PORT ${port}`)
+app.listen(port , async()=>{
+    try{
+        await connect();
+        console.log(`listening on port ${port}`)
+    }
+    catch(err){
+        console.log(err.message);
+    }
 })

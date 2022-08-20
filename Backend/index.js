@@ -12,7 +12,7 @@ app.use(cors())
 
 app.use("api/user/",userRoute)
 
-const port = process.env.PORT || 6754
+const port = process.env.PORT || 5050
 app.listen(port , ()=>{
     console.log(`Listening to PORT ${port}`)
 })

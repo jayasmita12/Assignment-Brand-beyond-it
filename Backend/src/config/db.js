@@ -2,7 +2,8 @@ const mongoose = require("mongoose")
 
 const connect =()=>{
     const connectdb = {
-        useNewurlParser:true
+        useNewurlParser:true,
+        useUnifiedTopology: true
     }
     try {
         

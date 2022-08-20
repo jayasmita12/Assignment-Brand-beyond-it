@@ -7,3 +7,4 @@ router.route("/login").post(authuser)
 router.route("/admin").get(getuser)
 
 module.exports=router;
+

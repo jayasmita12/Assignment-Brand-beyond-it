@@ -18,7 +18,7 @@ export const Login = () => {
         e.preventDefault()
         try {
            
-            const {data:res} = await axios("https://brand-beyond-authentication.herokuapp.com/api/user/login",{
+            const {data:res} = await axios("http://localhost:3000/api/user/login",{
               method:"post",
               data
             })
@@ -27,7 +27,7 @@ export const Login = () => {
             localStorage.setItem("token",res.data)
             window.location.href="/admin"
         } catch (error) {
-            if(error.response.status === 500){
+            if(error.response.status <= 500){
                 setSuccess("Logged-In Successfully !");
                 setTimeout(()=>{
                   setSuccess("")
@@ -41,7 +41,7 @@ export const Login = () => {
                 },2000)
             }
             else{
-                setError(error.response.data.message)
+                setError("error Found")
             }
         }
         

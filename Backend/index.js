@@ -10,8 +10,9 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.post("/api/user/register",register)
-app.post("/api/user/login",login)
+
+app.post("/register", register)
+app.post("/login", login)
 
 const port = process.env.PORT || 5050
 app.listen(port , async()=>{

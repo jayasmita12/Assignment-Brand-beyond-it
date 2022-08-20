@@ -25,6 +25,7 @@ export const Register = () => {
                     "Content-Type":"application/json"
                 }
             }
+            // https://brand-beyond-authentication.herokuapp.com/api/user/register
             const {data:res} = await axios.post("https://brand-beyond-authentication.herokuapp.com/api/user/register",data,config)
             console.log(res.message)
             setSuccess(res.message)
